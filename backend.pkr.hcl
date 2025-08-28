@@ -42,7 +42,7 @@ build {
     inline = [
       "sudo dnf install git ansible -y",
       "git clone https://github.com/konka-devops-lab/ansible-roles.git /tmp/ansible-roles",
-      "ansible-playbook /tmp/ansible-roles/playbooks",
+      "ansible-playbook /tmp/ansible-roles/playbooks/backend.yml",
       "rm -rf /tmp/ansible-roles",
       "sudo dnf remove git ansible -y"
     ]

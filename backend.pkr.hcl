@@ -38,21 +38,8 @@ build {
   name    = "sivab"
   sources = ["source.amazon-ebs.amz3_gp3"]
 
-  provisioner "file" {
-    source      = "src"
-    destination = "/app/src"
-  }
-
-  provisioner "file" {
-    source      = "pom.xml"
-    destination = "/app/pom.xml"
-  }
-
   provisioner "shell" {
     inline = [
-      "sudo mkdir -p /app",
-      "sudo mv /app/src /app/",
-      "sudo mv /app/pom.xml /app/",
       "sudo dnf install git ansible -y",
       "sudo git clone https://github.com/konka-devops-lab/ansible-roles.git /tmp/ansible-roles",
       "ansible-playbook /tmp/ansible-roles/ansible/backend.yml",
